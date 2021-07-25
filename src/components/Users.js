@@ -9,7 +9,9 @@ class Users extends Component {
         <ul>
           Users!
           { this.props.users.map((user, index) => <li key={index}>{user.username}</li>) }
+          
         </ul>
+        Total: {this.props.users.length}
       </div>
     )
   }

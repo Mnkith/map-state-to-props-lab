@@ -9,18 +9,17 @@ class UserInput extends Component {
   }
 
   handleInputChange = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+    this.props.dispatch({ type: 'UPDATEINPUT', event: event })
   }
 
   handleOnSubmit = (event) => {
+    console.log(this.props)
     event.preventDefault();
-    this.props.dispatch({type: 'ADD_USER', user: this.state})
+    this.props.dispatch({ type: 'ADD_USER', user: this.props.user })
   }
 
   render() {
-    return(
+    return (
       <form onSubmit={this.handleOnSubmit}>
         <p>
           <input
@@ -44,4 +43,13 @@ class UserInput extends Component {
   }
 }
 
-export default connect()(UserInput);
+const msp = (s) => {
+  return {
+    user: {
+      username: s.username,
+      hometown: s.hometown
+    }
+  }
+}
+
+export default connect(msp)(UserInput);
