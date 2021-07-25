@@ -1,6 +1,6 @@
 # Mapping State to Props Using React and Redux
 
-## Objectives
+## Objectives 
 
 - Use the **React Redux** library to connect the store to the **React**
   application.
